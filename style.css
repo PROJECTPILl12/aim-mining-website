@@ -1,0 +1,216 @@
+/* --- GLOBAL RESETS & FONTS --- */
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling to sections */
+}
+
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+:root {
+    /* Colors extracted from your Figma design */
+    --hero-bg: #EAE0DC;
+    --primary-brown: #8A453A;
+    --contact-bg: #6B4D48;
+    --text-dark: #331C18;
+    --text-light: #F5F5F5;
+}
+
+body {
+    background-color: var(--hero-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+    text-align: center;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    background-color: var(--hero-bg);
+    padding: 35px 0 30px;
+}
+
+.logo {
+    display: block;
+    max-width: 320px; /* Increased size (was 250px) */
+    width: 100%;      /* Maintains responsiveness */
+    margin-left: 0;   /* Pulls logo strictly to the left */
+    margin-right: auto;
+    margin-bottom: 25px;
+}
+
+.main-title {
+    font-size: 3rem;
+    color: var(--primary-brown);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 12px 35px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-brown);
+    color: white;
+    border: 2px solid var(--primary-brown);
+}
+
+.btn-primary:hover {
+    background-color: #6a342b;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary-brown);
+    border: 2px solid var(--primary-brown);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-brown);
+    color: white;
+}
+
+/* --- ABOUT US SECTION (With Blur Effect) --- */
+.about {
+    position: relative;
+    padding: 50px 0;
+    /* Insert the path to your background image here */
+    background-image: url('assets/about-bg.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+}
+
+/* This ::before pseudo-element creates the frosted/blur overlay */
+.about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(234, 224, 220, 0.75); /* Your hero color with opacity */
+    backdrop-filter: blur(10px); /* Creates the blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    z-index: 1;
+}
+
+.about-content {
+    position: relative;
+    z-index: 2; /* Keeps text above the blurred background */
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--primary-brown);
+    margin-bottom: 40px;
+}
+
+.text-block {
+    margin-bottom: 40px;
+}
+
+.text-block h3 {
+    color: var(--primary-brown);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* --- CONTACT US SECTION --- */
+.contact {
+    background-color: var(--contact-bg);
+    padding: 80px 0;
+    color: white;
+}
+
+.text-white {
+    color: white !important;
+}
+
+.contact-text {
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.social-icons a {
+    color: white;
+    transition: transform 0.2s ease, color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+.social-icons a:hover {
+    transform: translateY(-5px); /* Creates a little bounce on hover */
+    background-color: white;
+    color: var(--contact-bg);
+}
+
+
+/* --- RESPONSIVENESS (TABLET & MOBILE RULES) --- */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .hero {
+        padding: 60px 0;
+    }
+
+    .about, .contact {
+        padding: 60px 0;
+    }
+}
