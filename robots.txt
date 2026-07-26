@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://www.aimmining.com/sitemap.xml
+Sitemap: https://www.aimminingltd.com/sitemap.xml
